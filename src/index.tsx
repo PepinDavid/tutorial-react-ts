@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './pages/app/App';
 import reportWebVitals from './reportWebVitals';
+import Game from './containers/game/game';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <div className="center">
+      <h3 className="text-primary text-4xl font-bold underline">
+        HELLO WORLD
+      </h3>
+    </div>
+    
     <App />
+
+    <div className="center">
+      <Game />
+    </div>
   </React.StrictMode>
 );
 

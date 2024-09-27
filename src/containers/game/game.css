@@ -1,0 +1,17 @@
+.Game {
+    padding: 0 20px;
+}
+
+.grid-template {
+    grid-template-columns: 1fr 1fr;
+}
+
+.game-board {
+    flex: auto;
+    float: inline-start;
+}
+
+.game-info {
+    flex: auto;
+    float: inline-start;
+}
