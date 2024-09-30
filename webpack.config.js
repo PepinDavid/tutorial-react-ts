@@ -26,11 +26,11 @@ module.exports = {
             use: 'babel-loader',     // Utilise Babel pour la transpilation
         },
         {
-            test: /\.css$/,          // Gérer les fichiers CSS
+            test: /\.(s*)css$/,          // Gérer les fichiers CSS et scss
             use: [
-                MiniCssExtractPlugin.loader,
+                'style-loader',
                 'css-loader',
-                'postcss-loader',
+                'sass-loader'
             ],
         },
         {

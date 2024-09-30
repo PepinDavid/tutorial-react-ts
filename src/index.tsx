@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './pages/app/App';
 import reportWebVitals from './reportWebVitals';
 import Game from './containers/game/game';
@@ -18,7 +19,7 @@ root.render(
     
     <App />
 
-    <div className="center">
+    <div className="container">
       <Game />
     </div>
   </React.StrictMode>

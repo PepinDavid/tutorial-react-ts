@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
-import './square.css';
+import { ISquareButtonComponent } from '../../interface/interface';
+import './square.scss';
 
-function Square({value, onSquareClick}: {value: String | null, onSquareClick: any}): ReactElement {
+function Square({value, onSquareClick, color}: ISquareButtonComponent): ReactElement {
     return (
-        <button className="Square" onClick={onSquareClick}>{value}</button>
+        <button className={`Square ${color}`} onClick={onSquareClick}>{value}</button>
     )
 }
 

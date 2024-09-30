@@ -1,16 +1,14 @@
 import React, {ReactElement} from 'react';
-import './tictactoe.css';
+import { ITictactoeContainer } from '../../interface/interface';
+import './tictactoe.scss';
 
 import Square from '../../components/square/square';
 
-function Tictactoe({xIsNext, squaresState, onPlay}: {xIsNext: Boolean, squaresState: (String | null)[], onPlay: any}): ReactElement {
-    const winner = calculateWinner(squaresState);
-    let status = winner ? `${winner} a gagné` : `Prochain tour : ${xIsNext ? 'X' : 'O'}`;
-
+function Tictactoe({xIsNext, squaresState, linesWinning, winner, onPlay}: ITictactoeContainer): ReactElement {
     function clickOnSquare(index: number): void {
         if (winner || squaresState[index])
             return;
-        console.log(squaresState)
+
         const nextSquares = squaresState.slice();
 
         nextSquares[index] = xIsNext ? 'X' : 'O';
@@ -19,46 +17,32 @@ function Tictactoe({xIsNext, squaresState, onPlay}: {xIsNext: Boolean, squaresSt
 
     const squares = Array
     .from({length: 9})
-    .map((_, index) => <Square key={index} value={squaresState[index]} onSquareClick={() => clickOnSquare(index)}/>);
+    .map((_, index) => <Square key={index} color={linesWinning.includes(index) ? "red" : "black"} value={squaresState[index]} onSquareClick={() => clickOnSquare(index)}/>);
+
+    const array = [
+        ["1", ...squares.splice(0, 3)],
+        ["2", ...squares.splice(0, 3)],
+        ["3", ...squares.splice(0, 3)],
+        ["", "A", "B", "C"],
+    ];
 
     return (
         <div className="Tictactoe">
-            <div className="status">{status}</div>
-            <div className="board-row">
-                {squares.splice(0, 3)}
-            </div>
-
-            <div className="board-row">
-                {squares.splice(0, 3)}
-            </div>
-            
-            <div className="board-row">
-                {squares.splice(0, 3)}
-            </div>
+            <table>
+                <tbody>
+                    {
+                        array.map((els, index) => {
+                            return (
+                                <tr key={index}>
+                                    {els.map((el, i) => <td className={index === array.length -1 ? "text-center" : ""} key={i}>{el}</td>)}
+                                </tr>
+                            );
+                        })
+                    }
+                </tbody>
+            </table>
         </div>
     );
-}
-
-function calculateWinner(squares: (String | null)[]): String | null {
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-      ];
-
-    for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-    
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
-            return squares[a];
-    }
-    
-    return null;
 }
 
 export default Tictactoe;
