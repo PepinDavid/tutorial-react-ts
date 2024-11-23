@@ -32,7 +32,7 @@ abstract class BaseApiService implements IApiService {
 
     async get<T>(url: string): Promise<T> {
         const response = await fetch(
-            `${this.baseUrl}${url}`,
+            `${this.baseUrl}${url}/`,
             {
                 method: 'GET',
                 mode: 'cors',
@@ -48,7 +48,7 @@ abstract class BaseApiService implements IApiService {
 
     async post<T>(url: string, body: IBody): Promise<T> {
         const response = await fetch(
-            `${this.baseUrl}${url}`,
+            `${this.baseUrl}${url}/`,
             {
                 method: 'POST',
                 mode: 'cors',
@@ -68,7 +68,7 @@ abstract class BaseApiService implements IApiService {
 
     async put<T>(url: string, body: IBody): Promise<T> {
         const response = await fetch(
-            `${this.baseUrl}${url}`,
+            `${this.baseUrl}${url}/`,
             {
                 method: 'PUT',
                 mode: 'cors',
@@ -88,7 +88,7 @@ abstract class BaseApiService implements IApiService {
 
     async delete<T>(url: string): Promise<T> {
         const response = await fetch(
-            `${this.baseUrl}${url}`,
+            `${this.baseUrl}${url}/`,
             {
                 method: 'POST',
                 mode: 'cors',

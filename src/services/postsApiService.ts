@@ -4,9 +4,9 @@ interface IPost extends IBody {
     id?: number;
     title?: string;
     body?: string;
-    user?: string;
-    createdOn?: Date;
-    created_on?: Date;
+    user?: number;
+    createdOn?: Date | string;
+    created_on?: Date | string;
 }
 
 class PostsApiService extends BaseApiService {
@@ -23,6 +23,9 @@ class PostsApiService extends BaseApiService {
     }
 
     async create(body: IPost): Promise<IPost> {
+        body.created_on = new Date();
+        body.user = 1;
+
         return this.post<IPost>('posts', body)
     }
 }

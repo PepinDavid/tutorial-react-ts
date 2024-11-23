@@ -4,31 +4,43 @@ import { Outlet, Link } from 'react-router-dom';
 function Layout() {
     return(
         <>
-            <div className='container'>
-                <h6><Outlet></Outlet></h6>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/home">Home</Link>
-                    </li>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-                    <li>
-                        <Link to="/app">App</Link>
-                    </li>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/home">Home</Link>
+                            </li>
 
-                    <li>
-                        <Link to="/game">Game</Link>
-                    </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/app">App</Link>
+                            </li>
 
-                    <li>
-                        <Link to="/contact">Contact</Link>
-                    </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/game">Game</Link>
+                            </li>
 
-                    <li>
-                        <Link to="/blog">Blog</Link>
-                    </li>
-                </ul>
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/contact">Contact</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/blog">Blog</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/create-article">Create article</Link>
+                            </li>
+                        </ul>
+                        <div className="d-flex">
+                            <Outlet />
+                        </div>
+                    </div>
+                </div>
             </nav>
         </>
     )

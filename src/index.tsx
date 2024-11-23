@@ -12,6 +12,7 @@ import Game from './pages/game/Game';
 import Home from './pages/home/Home';
 import NoPage from './pages/nopage/NoPage';
 import Blog from './pages/blog/Blog';
+import CreatePost from './containers/create-post/CreatePost';
 
 
 const root = ReactDOM.createRoot(
@@ -20,25 +21,29 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <div className="center">
-      <h3 className="text-primary text-4xl font-bold underline">
-        HELLO WORLD
-      </h3>
-    </div>
-
-    <div className="container">
-      <BrowserRouter>
+    <BrowserRouter>
+      <header className="navbar navbar-expand-lg bd-navbar sticky-top">
         <Layout />
+      </header>
+
+      <div className="text-center">
+        <h3 className="text-primary text-4xl font-bold underline">
+          HELLO WORLD TEST REACT IN TS
+        </h3>
+      </div>
+
+      <div className="container">
         <Routes>
           <Route path='app' element={<App />} />
           <Route path='home' element={<Home />} />
           <Route path='contact' element={<Contact />} />
           <Route path='game' element={<Game />} />
           <Route path='blog' element={<Blog />} />
+          <Route path='create-article' element={<CreatePost />} />
           <Route path='*' element={<NoPage />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

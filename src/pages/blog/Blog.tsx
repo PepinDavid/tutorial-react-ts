@@ -8,7 +8,9 @@ function Blog()  {
         <div>
             <h3>Welcome to posts blog</h3>
         </div>
-        <Posts />
+        <div className="album py-5 bg-body-tertiary">
+            <Posts />
+        </div>
         </>
     )
 }
