@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './pages/app/App';
 import reportWebVitals from './reportWebVitals';
-import Game from './containers/game/game';
+
+import Layout from './pages/layout';
+import App from './pages/app/App';
+import Contact from './pages/contact/Contact';
+import Game from './pages/game/Game';
+import Home from './pages/home/Home';
+import NoPage from './pages/nopage/NoPage';
+import Blog from './pages/blog/Blog';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <div className="center">
@@ -16,11 +25,19 @@ root.render(
         HELLO WORLD
       </h3>
     </div>
-    
-    <App />
 
     <div className="container">
-      <Game />
+      <BrowserRouter>
+        <Layout />
+        <Routes>
+          <Route path='app' element={<App />} />
+          <Route path='home' element={<Home />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='game' element={<Game />} />
+          <Route path='blog' element={<Blog />} />
+          <Route path='*' element={<NoPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   </React.StrictMode>
 );

@@ -3,7 +3,7 @@ import './game.scss';
 
 import Tictactoe from "../tictactoe/tictactoe";
 
-function Game() {
+function GameContainer() {
     const [xIsNext, setXIsNext] = useState<Boolean>(true);
     const [history, setHistory] = useState<(String | null)[][]>([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState<number>(0);
@@ -133,4 +133,4 @@ function gameStatus(xIsNext: Boolean, winner: String | null, squares: (String | 
     return `Prochain tour : ${xIsNext ? 'X' : 'O'}`;
 }
 
-export default Game;
+export default GameContainer;
