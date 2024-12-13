@@ -13,7 +13,7 @@ function Posts() {
     useEffect(() => {
         postsService.getAll().then((data: IPost[]) => {
             data = data.map(d => ({...d, createdOn: d.created_on ? new Date(d.created_on) : undefined}));
-
+console.log(data)
             setPosts(data);
         });
     }, [postsService]);

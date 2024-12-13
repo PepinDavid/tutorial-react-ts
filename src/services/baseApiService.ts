@@ -90,7 +90,7 @@ abstract class BaseApiService implements IApiService {
         const response = await fetch(
             `${this.baseUrl}${url}/`,
             {
-                method: 'POST',
+                method: 'DELETE',
                 mode: 'cors',
                 headers: {...this.headers,},
             }

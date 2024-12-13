@@ -28,6 +28,16 @@ class PostsApiService extends BaseApiService {
 
         return this.post<IPost>('posts', body)
     }
+
+    async update(id: number, body: IPost): Promise<IPost> {
+        body.user = 1;
+
+        return this.put<IPost>(`posts/${id}`, body);
+    }
+
+    async remove(id: number): Promise<IPost> {
+        return this.delete<IPost>(`posts/${id}`);
+    }
 }
 
 export {
